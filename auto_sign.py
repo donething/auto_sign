@@ -10,4 +10,3 @@ if wo17.do_sign():
     wo17.do_redpocket()
     wo17.do_draw()
 
-
