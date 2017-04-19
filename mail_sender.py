@@ -2,7 +2,7 @@
 import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
-import configparser
+from comm import Comm
 
 
 class MailSender:
@@ -10,8 +10,7 @@ class MailSender:
     def send_mail(subject, content):
         "发送邮件"
         # 获取用户邮箱配置信息
-        cp = configparser.ConfigParser()
-        cp.read("config.conf")
+        cp = Comm.get_config()
         user = cp.get("mail", "user")
         pwd = cp.get("mail", "pwd")
         server = cp.get("mail", "server")
