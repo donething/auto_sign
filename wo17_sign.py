@@ -3,12 +3,14 @@ import requests
 from mail_sender import MailSender
 from comm import Comm
 import configparser
+import os
 
 
 class Wo17:
     def __init__(self):
         cp = configparser.ConfigParser()
-        cp.read("config.conf")
+        config = (os.path.join(os.curdir, "config.conf"))   # 需要指定绝对路径，以在shell脚本中调用Python程序
+        cp.read(config)
         self.__headers = {
             "User-Agent": cp.get("wo17", "agent"),
             "Host": cp.get("wo17", "host"),
