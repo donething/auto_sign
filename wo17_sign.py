@@ -47,7 +47,7 @@ class Wo17:
     def do_draw(self):
         "一起沃抽奖。"
         "由于系统限制，每天最多只能抽5次"
-        num = 8
+        num = 6
         for i in range(num):
             draw = requests.get("http://17wo.cn/integalPrize/draw", headers=self.__headers)
             print("第%d次抽奖结果：%s" % (i+1, draw.text))
