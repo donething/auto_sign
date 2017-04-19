@@ -9,7 +9,8 @@ import os
 class Wo17:
     def __init__(self):
         cp = configparser.ConfigParser()
-        config = (os.path.join(os.curdir, "config.conf"))   # 需要指定绝对路径，以在shell脚本中调用Python程序
+        config = (os.path.join(os.getcwd(), "config.conf"))   # 需要指定绝对路径，以在shell脚本中调用Python程序
+        print("config file path: " + config)
         cp.read(config)
         self.__headers = {
             "User-Agent": cp.get("wo17", "agent"),
