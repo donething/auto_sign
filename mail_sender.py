@@ -16,9 +16,10 @@ class MailSender:
         server = cp.get("mail", "server")
         port = cp.getint("mail", "port")
         to = cp.get("mail", "to")
+        sender = cp.get("mail", "sender")
 
         msg = MIMEText(content, "plain", "utf-8")
-        msg["From"] = Header(user, "utf-8")
+        msg["From"] = Header(sender, "utf-8")
         msg["To"] = Header(to, "utf-8")
         msg["Subject"] = Header(subject, "utf-8")
         try:
