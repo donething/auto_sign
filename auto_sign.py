@@ -9,5 +9,5 @@ wo17 = Wo17()
 if wo17.do_sign():          # 签到
     wo17.do_redpocket()     # 红包
     wo17.do_draw()          # 抽奖
-    wo17.do_draw_17days()   # 签到满17天，额外抽奖
+    wo17.do_draw_17days()   # 签到满17天，额外抽奖一次
 

@@ -52,7 +52,7 @@ class Wo17:
         return True
 
     def do_draw_17days(self):
-        "当月签到满17天会有额外的一次抽奖机会"
+        "当月签到满17天会,有额外的一次抽奖机会"
         draw = requests.post("http://17wo.cn/signDraw/draw", headers=self.__headers)
         if draw.text.find("ok") >= 0:
             print(Comm.time() + " 当月签到满17天后，额外抽奖结果：成功！")
