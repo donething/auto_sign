@@ -50,3 +50,21 @@ class Wo17:
             draw = requests.get("http://17wo.cn/integalPrize/draw", headers=self.__headers)
             print("第%d次抽奖结果：%s" % (i+1, draw.text))
         return True
+
+    def do_draw_17days(self):
+        "当月签到满17天会有额外的一次抽奖机会"
+        draw = requests.post("http://17wo.cn/signDraw/draw", headers=self.__headers)
+        if draw.text.find("ok") >= 0:
+            print(Comm.time() + "当月签到满17天后，额外抽奖结果：成功！")
+            return True
+        elif draw.text.find("出错了") >=0 :
+            print(Comm.time() + "当月签到满17天后，额外抽奖结果：之前已经抽过了！")
+            return True
+        else:
+            print(Comm.time() + "当月签到满17天后，额外抽奖结果：失败！" + draw.text)
+            MailSender.send_mail(Comm.time() + "当月签到满17天后，额外抽奖结果：失败！", draw.text)
+            return False
+
+if __name__ == "__main__":
+    wo = Wo17()
+    wo.do_draw_17days()
