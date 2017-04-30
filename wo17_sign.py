@@ -55,13 +55,13 @@ class Wo17:
         "当月签到满17天会有额外的一次抽奖机会"
         draw = requests.post("http://17wo.cn/signDraw/draw", headers=self.__headers)
         if draw.text.find("ok") >= 0:
-            print(Comm.time() + "当月签到满17天后，额外抽奖结果：成功！")
+            print(Comm.time() + " 当月签到满17天后，额外抽奖结果：成功！")
             return True
         elif draw.text.find("出错了") >=0 :
-            print(Comm.time() + "当月签到满17天后，额外抽奖结果：之前已经抽过了！")
+            print(Comm.time() + " 当月签到满17天后，额外抽奖结果：之前已经抽过了！")
             return True
         else:
-            print(Comm.time() + "当月签到满17天后，额外抽奖结果：失败！" + draw.text)
+            print(Comm.time() + " 当月签到满17天后，额外抽奖结果：失败！" + draw.text)
             MailSender.send_mail(Comm.time() + "当月签到满17天后，额外抽奖结果：失败！", draw.text)
             return False
 
