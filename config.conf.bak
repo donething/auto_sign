@@ -10,4 +10,5 @@ sender = 发件人的昵称
 agent = Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36
 host = 17wo.cn
 referer = http://17wo.cn/wowaplogin/login
+cookieurl = 保存cookie的url，此项优先级高于下面一项。如果需要使用下面一项，请务必将此项设空！
 cookie = 一起沃的cookie

@@ -7,11 +7,17 @@ from comm import Comm
 class Wo17:
     def __init__(self):
         cp = Comm.get_config()
+        cookie = ""
+        cookieurl = cp.get("wo17", "cookieurl")
+        if cookieurl != "":
+            cookie = requests.get(cookieurl).text
+        else:
+            cookie = cp.get("wo17", "cookie")
         self.__headers = {
             "User-Agent": cp.get("wo17", "agent"),
             "Host": cp.get("wo17", "host"),
             "Referer": cp.get("wo17", "referer"),
-            "Cookie": cp.get("wo17", "cookie")
+            "Cookie": cookie
         }
 
     def do_sign(self):
@@ -67,4 +73,4 @@ class Wo17:
 
 if __name__ == "__main__":
     wo = Wo17()
-    wo.do_draw_17days()
+    # wo.do_draw_17days()
